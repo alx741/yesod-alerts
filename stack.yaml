@@ -35,20 +35,21 @@ resolver: lts-9.2
 # A package marked 'extra-dep: true' will only be built if demanded by a
 # non-dependency (i.e. a user package), and its test suites and benchmarks
 # will not be run. This is useful for tweaking upstream packages.
-# packages:
-#- .
+packages:
+- .
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
 
 
-packages:
-- location: .
-- location:
-    git: https://github.com/alx741/alerts
-    commit: a48ff16edecffe3053151428d063537374516cb9
-  extra-dep: true
+# packages:
+# - location: .
+# - location:
+#     git: https://github.com/alx741/alerts
+#     commit: a48ff16edecffe3053151428d063537374516cb9
+#   extra-dep: true
 
-extra-deps: []
+extra-deps:
+    - alerts-0.1.0.0
 
 # Override default flag values for local packages and extra-deps
 flags: {}
