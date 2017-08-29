@@ -1,10 +1,36 @@
--- | Set alerts from your handlers
+-- | Setup this package by modifying your definition of *defaultLayout* in
+-- *Foundation.hs*
+--
+-- @
+--      ...
+--      defaultLayout widget = do
+--      ...
+--      alerts  <- getAlerts
+--      ...
+-- @
+--
+--
+--  Then Include a renderer in *default-layout.hamlet*
+--
+-- @
+--      ...
+--      #{renderAlertsBootstrap3 alerts}
+--      ...
+--      ^{widget}
+--      ...
+-- @
+--
+--  Set alerts from your handlers
 --
 -- @
 --      getHomeR :: Handler Html
 --      getHomeR = do
 --          ...
---          setAlert
+--          setAlert (Alert Error "oops")
+--          setSuccessAlert "Yay!"
+--          ...
+--          defautlLayout $ do
+--              $(widgetFile "homepage")
 -- @
 
 module Yesod.Alert
@@ -20,6 +46,9 @@ module Yesod.Alert
 
     -- * Getting alerts
     , getAlerts
+
+    , Alert(..)
+    , AlertStatus(..)
     ) where
 
 import Data.Maybe (fromMaybe)
