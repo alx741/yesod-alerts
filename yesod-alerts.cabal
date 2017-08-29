@@ -1,7 +1,7 @@
 name:                yesod-alerts
 version:             0.1.0.0
 synopsis:            Alert messages for the Yesod framework
-description:         Use the 'alerts' package with the Yesod framework
+description:         Use the "alerts" package with the Yesod framework
 homepage:            https://github.com/alx741/yesod-alerts#readme
 license:             BSD3
 license-file:        LICENSE
