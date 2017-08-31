@@ -1,3 +1,5 @@
+{-# LANGUAGE FlexibleContexts #-}
+
 -- | Setup this package by modifying your definition of *defaultLayout* in
 -- *Foundation.hs*
 --
@@ -36,6 +38,7 @@
 module Yesod.Alert
     ( -- * Setting alerts
       setAlert
+    , setAlertI
 
       -- ** Shortcuts
     , setDefaultAlert
@@ -59,9 +62,13 @@ import Web.Alert
 import Yesod.Core
 import qualified Data.Text.Lazy as TL
 
--- Set an 'Alert'
+-- | Set an 'Alert'
 setAlert :: MonadHandler m => Alert -> m ()
 setAlert (Alert alert msg) = addMessage (pack $ show alert) $ toHtml msg
+
+-- | Set an 'Alert' allowing i18n
+setAlertI :: (MonadHandler m, RenderMessage (HandlerSite m) msg) => AlertStatus -> msg -> m ()
+setAlertI alert msg = addMessageI (pack $ show alert) msg
 
 setDefaultAlert :: MonadHandler m => TL.Text -> m ()
 setDefaultAlert msg = setAlert (Alert Default msg)
@@ -78,7 +85,7 @@ setWarningAlert msg = setAlert (Alert Warning msg)
 setErrorAlert :: MonadHandler m => TL.Text -> m ()
 setErrorAlert msg = setAlert (Alert Error msg)
 
--- Get available 'Alert's
+-- | Get available 'Alert's
 getAlerts :: MonadHandler m => m [Alert]
 getAlerts = do
     msgs <- getMessages
