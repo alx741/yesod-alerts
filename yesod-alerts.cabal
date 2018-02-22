@@ -23,7 +23,7 @@ library
                      , alerts >= 0.1.0.0 && < 0.2.0.0
                      , text >= 0.11 && < 2.0
                      , safe >= 0.3.14 && < 0.4
-                     , yesod-core >= 1.4.32 && < 1.5
+                     , yesod-core >= 1.4.32
                      , blaze-html
                      , blaze-markup
   ghc-options:         -Wall -fwarn-tabs -O2
