@@ -47,3 +47,4 @@ getHomeR = do
 * Bootstrap v3
 * Bootstrap v4
 * Foundation v5
+* Bulma
