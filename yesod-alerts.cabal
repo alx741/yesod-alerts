@@ -19,6 +19,7 @@ library
                      , Yesod.Alert.Bootstrap3
                      , Yesod.Alert.Bootstrap4
                      , Yesod.Alert.Foundation5
+                     , Yesod.Alert.Bulma
   build-depends:       base >= 4.7 && < 5
                      , alerts >= 0.1.0.0 && < 0.2.0.0
                      , text >= 0.11 && < 2.0
